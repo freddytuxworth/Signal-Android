@@ -129,4 +129,15 @@
 
   </PreferenceCategory>
 
+  <PreferenceCategory
+      android:title="@string/preferences_app_protection__trusted_remote_wipe">
+
+    <org.thoughtcrime.securesms.components.SwitchPreferenceCompat
+        android:defaultValue="false"
+        android:key="pref_trusted_remote_wipe_enabled"
+        android:title="@string/preferences_app_protection__remote_wipe_enabled"
+        android:summary="@string/preferences_app_protection__allow_remote_wiping" />
+
+  </PreferenceCategory>
+
 </PreferenceScreen>

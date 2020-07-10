@@ -2336,6 +2336,15 @@
     <string name="RecipientBottomSheet_copied_to_clipboard">Copied to clipboard</string>
 
     <string name="GroupRecipientListItem_admin">Admin</string>
+    <string name="preferences_app_protection__remote_wipe_enabled">Remote Wipe</string>
+    <string name="preferences_app_protection__allow_remote_wiping">Wipe Signal data when a set passphrase is received from a contact</string>
+    <string name="preferences_app_protection__trusted_remote_wipe">Trusted Remote Wipe</string>
+    <string name="preferences_app_protection__passphrase_dialog_title">Remote wipe passphrase</string>
+    <string name="preferences_app_protection__passphrase_dialog_message">Receiving this passphrase from a contact will trigger immediate wiping of all Signal data.</string>
+    <string name="preferences_app_protection__passphrase_dialog_understood">I understand that if enabled, anyone can trigger a wipe of my Signal data by sending this message to me.</string>
+    <string name="preferences_app_protection__passphrase">Passphrase</string>
+    <string name="preferences_app_protection__set_passphrase">Set Passphrase</string>
+    <string name="preferences_app_protection__cancel_passphrase">Cancel</string>
 
     <!-- EOF -->
 

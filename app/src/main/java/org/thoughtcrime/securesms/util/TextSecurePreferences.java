@@ -154,6 +154,9 @@ public class TextSecurePreferences {
   public static final String SCREEN_LOCK         = "pref_android_screen_lock";
   public static final String SCREEN_LOCK_TIMEOUT = "pref_android_screen_lock_timeout";
 
+  public static final String REMOTE_WIPE_ENABLED = "pref_trusted_remote_wipe_enabled";
+  public static final String REMOTE_WIPE_PASSPHRASE = "pref_trusted_remote_wipe_passphrase";
+
   @Deprecated
   public static final  String REGISTRATION_LOCK_PREF_V1                = "pref_registration_lock";
   @Deprecated
@@ -292,6 +295,22 @@ public class TextSecurePreferences {
 
   public static @Nullable String getBackupPassphrase(@NonNull Context context) {
     return getStringPreference(context, BACKUP_PASSPHRASE, null);
+  }
+
+  public static void setRemoteWipePassphrase(@NonNull Context context, @Nullable String passphrase) {
+    setStringPreference(context, REMOTE_WIPE_PASSPHRASE, passphrase);
+  }
+
+  public static @Nullable String getRemoteWipePassphrase(@NonNull Context context) {
+    return getStringPreference(context, REMOTE_WIPE_PASSPHRASE, null);
+  }
+
+  public static void setRemoteWipeEnabled(@NonNull Context context, boolean value) {
+    setBooleanPreference(context, REMOTE_WIPE_ENABLED, value);
+  }
+
+  public static boolean isRemoteWipeEnabled(@NonNull Context context) {
+    return getBooleanPreference(context, REMOTE_WIPE_ENABLED, false);
   }
 
   public static void setEncryptedBackupPassphrase(@NonNull Context context, @Nullable String encryptedPassphrase) {

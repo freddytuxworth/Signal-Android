@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -1232,6 +1233,7 @@ public final class PushProcessMessageJob extends BaseJob {
     String      body      = message.getBody().isPresent() ? message.getBody().get() : "";
     Recipient   recipient = getMessageDestination(content, message);
 
+    System.out.println("GOT MESSAGE: " + body);
     if (message.getExpiresInSeconds() != recipient.getExpireMessages()) {
       handleExpirationUpdate(content, message, Optional.absent(), groupId);
     }

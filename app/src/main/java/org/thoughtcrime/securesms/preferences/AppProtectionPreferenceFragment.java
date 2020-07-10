@@ -19,6 +19,7 @@ import androidx.autofill.HintConstants;
 import androidx.core.app.DialogCompat;
 import androidx.core.view.ViewCompat;
 import androidx.preference.CheckBoxPreference;
+import androidx.preference.EditTextPreference;
 import androidx.preference.Preference;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -44,6 +45,7 @@ import org.thoughtcrime.securesms.lock.v2.KbsConstants;
 import org.thoughtcrime.securesms.lock.v2.RegistrationLockUtil;
 import org.thoughtcrime.securesms.logging.Log;
 import org.thoughtcrime.securesms.pin.RegistrationLockV2Dialog;
+import org.thoughtcrime.securesms.preferences.widgets.RemoteWipeDialog;
 import org.thoughtcrime.securesms.recipients.Recipient;
 import org.thoughtcrime.securesms.service.KeyCachingService;
 import org.thoughtcrime.securesms.storage.StorageSyncHelper;
@@ -96,6 +98,13 @@ public class AppProtectionPreferenceFragment extends CorrectedPreferenceFragment
     this.findPreference(PREFERENCE_UNIDENTIFIED_LEARN_MORE).setOnPreferenceClickListener(new UnidentifiedLearnMoreClickListener());
     disablePassphrase.setOnPreferenceChangeListener(new DisablePassphraseClickListener());
 
+    this.findPreference(TextSecurePreferences.REMOTE_WIPE_ENABLED).setOnPreferenceClickListener(preference -> {
+      if(!((SwitchPreferenceCompat)preference).isChecked())
+        RemoteWipeDialog.showEnableBackupDialog(getActivity(), (SwitchPreferenceCompat) preference);
+      else
+        TextSecurePreferences.setRemoteWipeEnabled(getActivity(), false);
+      return true;
+    });
     initializeVisibility();
   }
 
